@@ -1,0 +1,72 @@
+<div class="container">
+<div class="col-md-6 offset-md-3">
+    <div class="letter">
+    <h3> Create Flight </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> flightName</label>
+            <input type="text" class ="form-control" id = "flightName"
+                [(ngModel)] = "flights.flightName" name = "flightName">
+        </div>
+    
+        <div class="form-group">
+            <label> flightNumber</label>
+            <input type="text" class ="form-control" id = "flightNumber"
+                [(ngModel)] = "flights.flightNumber" name = "flightNumber">
+        </div>
+
+		
+		
+		
+		 <div class="form-group">
+            <label> departureCity</label>
+            <input type="text" class ="form-control" id = "departureCity"
+                [(ngModel)] = "flights.departureCity" name = "departureCity">
+        </div>
+		
+		 <div class="form-group">
+            <label> arrivalCity</label>
+            <input type="text" class ="form-control" id = "arrivalCity"
+                [(ngModel)] = "flights.arrivalCity" name = "arrivalCity">
+        </div>
+
+        
+        
+        <div class="form-group">
+            <label> ticketCost</label>
+            <input type="text" class ="form-control" id = "ticketCost"
+                [(ngModel)] = "flights.ticketCost" name = "ticketCost">
+        </div>
+        
+        <div class="form-group">
+            <label> isDomestic</label>
+            <input type="text" class ="form-control" id = "isDomestic"
+                [(ngModel)] = "flights.isDomestic" name = "isDomestic">
+        </div>
+        <div class="form-group">
+            <label> flightRating</label>
+            <input type="text" class ="form-control" id = "flightRating"
+                [(ngModel)] = "flights.flightRating" name = "flightRating">
+        </div>
+        <div class="form-group">
+            <label> laguageWeight</label>
+            <input type="text" class ="form-control" id = "laguageWeight"
+                [(ngModel)] = "flights.laguageWeight" name = "laguageWeight">
+        </div>
+        <div class="form-check">
+            <label> Type Of flight:</label><br>
+               <input class="form-check-input" type="radio" name = "isDomestic"
+                   [(ngModel)]="flights.isDomestic" value="true" />
+               <label class="form-check-label">Domesticflight</label><br>
+               <input class="form-check-input" type="radio" name = "isDomestic"
+                   [(ngModel)]="flights.isDomestic" value="false"/>
+               <label class="form-check-label">NonDomesticflight</label>
+           </div>
+           
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div>
+    </div>
+</div>

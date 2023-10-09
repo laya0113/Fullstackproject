@@ -1,0 +1,21 @@
+<div class="topnav">
+  <ul>
+    <li>
+      
+      <a *ngIf="userService.isUserLoggedIn()" routerLink="/see-all-flights" routerLinkActive="active"><i class="fa-solid fa-jet-fighter-up"></i>FlightList</a>
+      <a *ngIf="userService.isUserLoggedIn()" routerLink="create-flight" routerLinkActive="active" class="nav-link" ><i class="fa-solid fa-folder-plus"></i>Add New Flight</a>
+      <a *ngIf="userService.isUserLoggedIn()" routerLink="/signin" routerLinkActive="active" class="nav-link"><i class="fa-solid fa-user"></i>logout</a>
+      </li>
+      <li class="nav-item" *ngIf="!userService.isUserLoggedIn()">
+        <a class="nav-link" href="/signin"style="color: blanchedalmond;">Login </a>
+          </li>
+
+
+      
+  
+  </ul>
+</div>
+  <h1 class="text-center"> {{title}} </h1>
+  <div class = "container">
+    <router-outlet></router-outlet>
+  </div>

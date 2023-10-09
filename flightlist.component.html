@@ -1,0 +1,77 @@
+<div class="col-md-8">
+    <div class="input-group mb-3">
+    
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Flight name"
+        [(ngModel)]="flightName"
+        />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchByName()"
+        >
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+          Search
+        </button>
+      
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Sort by:</button>
+      <div class="dropdown-content">
+      <a (click)="getFlightBySorting('costlow')">TicketCost Asc</a>
+      <a (click)="getFlightBySorting('costHigh')">TicketCost Desc</a>
+      <a (click)="getFlightBySorting('ratinglow')" >FlightRating</a>
+      <a (click)="getFlightBySorting('ratingHigh')" >FlightRating</a>   
+  </div>
+</div>
+
+<table class = "table table-hover" style="width: 100%" >
+<button class="btn btn-outline-secondary" type="button" (click)="getDomestic()"> non domestic flights
+</button>
+
+<button class="btn btn-outline-secondary" type="button" (click)="getDomestic()">domestic flights </button>
+</table>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Flight Name</th>
+            <th> Flight Number  </th>
+            <th> departureCity</th>
+            <th> arrivalCity</th>
+            <th> laguageWeight</th>
+            <th> Ticket Cost</th>
+            <th> flight Ratings </th>
+            <th> isDomestic</th>
+            <th> Actions </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let flight of flights" >
+            <td> {{ flight.flightName }} </td>
+            <td> {{ flight.flightNumber }} </td>
+            <td> {{ flight.departureCity}} </td>
+            <td> {{ flight.arrivalCity}} </td>
+            <td> {{ flight.laguageWeight}} </td>
+            <td> {{ flight.ticketCost }} </td>
+            <td> {{ flight.flightRating }} </td>
+            <td> {{flight.isDomestic}}</td>
+            <td>
+               <button (click) = "updateFlight(flight.id)" class = "btn btn-info"><i class="fa-sharp fa-solid fa-arrow-up"></i> Update</button>
+               
+               <button (click) = "deleteFlight(flight.id)" class = "btn btn-danger"><i class="fa-sharp fa-solid fa-trash"></i>Delete</button>
+              
+               <button (click) = "viewFlight(flight.id)" class = "btn btn-info"><i class="fa-solid fa-eye"></i> View</button> 
+            </td>
+        </tr>
+        <tr *ngIf="flights.length !== 0">
+          <button class="m-3 btn btn-sm btn-danger" (click)="removeAllFlights()">
+            <i class="fa-sharp fa-solid fa-trash"></i> Remove All
+              </button>
+        </tr>
+    </tbody>
+</table>
